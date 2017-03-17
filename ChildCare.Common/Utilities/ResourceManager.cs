@@ -18,7 +18,7 @@ namespace ChildCare.Common.Utilities
 			try
 			{
 				string assembly = Assembly.GetCallingAssembly().GetName().Name;
-				string filename = $"pack://application:,,,/{assembly};component/Resources/Images/{resourceName}.png";
+				string filename = string.Format("pack://application:,,,/{0};component/Resources/Images/{1}.png", assembly, resourceName);
 				var image = new BitmapImage(new Uri(filename, UriKind.Absolute));
 				image.Freeze();
 				return image;

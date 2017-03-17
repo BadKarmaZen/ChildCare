@@ -41,6 +41,7 @@ namespace ChildCare.Administration.ViewModels
 		{
 			using (var con = IoC.Get<IDataBaseConnection>().GetConnection())
 			{
+
 				var query = from a in con.Accounts.FindAll()
 										select new AccountUI()
 										{

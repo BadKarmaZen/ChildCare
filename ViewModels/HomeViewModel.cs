@@ -49,7 +49,8 @@ namespace ChildCare.ViewModels
 
 		public void LoadModule(DashBoardItem item)
 		{
-			item?.ExecuteAction();
+			if(item != null)
+				item.ExecuteAction();
 		}
 
 		#endregion

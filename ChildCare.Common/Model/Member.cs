@@ -14,7 +14,7 @@ namespace ChildCare.Common.Model
 
 		public string GetFullName()
 		{
-			return $"{FirstName} {LastName}";
+			return string.Format("{0} {1}", FirstName, LastName);
 		}
 
 	}

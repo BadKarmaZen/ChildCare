@@ -18,7 +18,7 @@ namespace ChildCare.Core
 	public class Bootstrapper : BootstrapperBase
 	{
 		#region Consts
-		
+
 		private List<Assembly> _assemblies;
 
 		#endregion
@@ -128,13 +128,15 @@ namespace ChildCare.Core
 				foreach (var module in modules)
 				{
 					IModule foo = Activator.CreateInstance(module) as IModule;
-					foo?.Load();
+					if (foo != null)
+					{
+						foo.Load();
+					}
 				}
 			}
 		}
 
 		private IEnumerable<Assembly> GetAssemblies()
-
 		{
 			var filenames = Directory.EnumerateFiles(Environment.CurrentDirectory, "ChildCare.*.dll");
 

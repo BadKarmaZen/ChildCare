@@ -30,7 +30,7 @@ namespace ChildCare.ViewModels
 			get
 			{
 				var version = Assembly.GetExecutingAssembly().GetName().Version.ToString(3);
-				return $"DayCare V{version} - © 2017, Kurt Pattyn";
+				return string.Format("DayCare V{0} - © 2017, Kurt Pattyn", version);
 			}
 		}
 

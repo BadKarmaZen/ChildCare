@@ -74,7 +74,7 @@ namespace ChildCare.ViewModels
 		{
 			AddMenu(new MenuItem()
 			{
-				Caption =  message.Caption,
+				Caption = message.Caption,
 				Action = message.Action
 			});
 		}
@@ -87,7 +87,10 @@ namespace ChildCare.ViewModels
 
 		private void ExecuteMenu(MenuItem item)
 		{
-			item?.Action?.Invoke();
+			if (item != null && item.Action != null)
+			{
+				item.Action();
+			}
 		}
 	}
 }

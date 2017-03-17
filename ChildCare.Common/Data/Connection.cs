@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ChildCare.Common.Interfaces;
 using ChildCare.Common.Model;
 using LiteDB;
+using System.Diagnostics;
 
 namespace ChildCare.Common.Data
 {
@@ -21,19 +22,21 @@ namespace ChildCare.Common.Data
 
 		public Connection(DataBase database)
 		{
+			Debug.Assert(database != null);
+
 			_database = database;
 		}
 
 		public void Dispose()
 		{
-			_database?.Dispose();
+			_database.Dispose();
 		}
 
 		#endregion
 
 		public LiteCollection<Account> Accounts
 		{
-			get { return _database?.Accounts; }
+			get { return _database.Accounts; }
 		}
 
 		public LiteCollection<Member> Members
